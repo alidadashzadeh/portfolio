@@ -23,6 +23,8 @@ export default function Photo() {
 						quality={100}
 						className="object-contain z-[-10] rounded-full mix-blend-lighten"
 					/>
+					{/* dark overlay */}
+					<div className="absolute inset-0 rounded-full bg-gradient-to-b from-black/30 via-black/10 to-black/40" />{" "}
 				</div>
 
 				{/* circle */}
