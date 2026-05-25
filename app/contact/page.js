@@ -1,106 +1,97 @@
 "use client";
 
+import { info } from "@/constants/contactInfo";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-
-const info = [
-  { icon: <FaPhoneAlt />, title: "Phone", description: "(+1) 647 877 8157" },
-  {
-    icon: <FaEnvelope />,
-    title: "Email",
-    description: "a.dadashzadeh89@gmail.com",
-  },
-  {
-    icon: <FaMapMarkerAlt />,
-    title: "Address",
-    description: "Toronto, Ontario, Canada",
-  },
-];
 export default function Contact() {
-  return (
-    <motion.section
-      initial={{ opacity: 0 }}
-      animate={{
-        opacity: 1,
-        transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
-      }}
-      className="py-6"
-    >
-      <div className="container mx-auto">
-        <div className="flex flex-col xl:flex-row gap-[30px]">
-          {/* form */}
-          <div className=" xl:w-[54%] order-2 xl:order-none">
-            <form className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
-              <h3 className="text-4xl text-accent ">Let's work together</h3>
-              <p className="text-white/60">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                convallis, erat ut tincidunt varius,
-              </p>
-              {/* inputs */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Input type="firstname" placeholder="Firstname" />
-                <Input type="lastname" placeholder="Lastname" />
-                <Input type="email" placeholder="Email Address" />
-                <Input type="phone" placeholder="Phone Number" />
-              </div>
+	return (
+		<motion.section
+			initial={{ opacity: 0 }}
+			animate={{
+				opacity: 1,
+				transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
+			}}
+			className="min-h-[80vh] flex items-center py-10 xl:py-12"
+		>
+			<div className="container mx-auto">
+				<div className="grid grid-cols-1 xl:grid-cols-[0.9fr_1.1fr] gap-10 xl:gap-16 items-center">
+					{/* Left content */}
+					<div className="space-y-6">
+						<span className="inline-flex rounded-full border border-accent/30 bg-accent/10 px-4 py-2 text-sm font-medium text-accent">
+							Get in touch
+						</span>
 
-              <Select>
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select a service" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    <SelectLabel>Select a service</SelectLabel>
-                    <SelectItem value="est">Web Development</SelectItem>
-                    <SelectItem value="mst">UI/UX Design</SelectItem>
-                    <SelectItem value="cst">Logo Design</SelectItem>
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
+						<div className="space-y-4">
+							<h1 className="text-4xl md:text-5xl xl:text-6xl font-bold leading-tight text-white">
+								Let&apos;s build something useful together.
+							</h1>
 
-              <Textarea
-                className="h-[200px]"
-                placeholder="Type your message here"
-              />
+							<p className="max-w-[620px] text-white/60 leading-relaxed">
+								I&apos;m open to web development opportunities, portfolio
+								collaborations, and engineering-related roles. Feel free to
+								reach out by email or phone, or connect with me through LinkedIn
+								and GitHub.
+							</p>
+						</div>
 
-              <Button size="md" className="max-w-40">
-                Send Message
-              </Button>
-            </form>
-          </div>
-          <div className="flex flex-1 items-center xl:justify-end order-1 xl:order-none mb-8 xl:mb-0">
-            <ul className="flex flex-col gap-10">
-              {info.map((item, i) => {
-                return (
-                  <li key={i} className="flex items-center gap-6">
-                    <div className="w-[52px] h-[52px] xl:w[72px] xl:h-[72px] bg-[#27272c] flex justify-center items-center text-accent rounded-md">
-                      <div className="text-[28px]">{item.icon}</div>
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-white/60">{item.title}</p>
-                      <h3 className="text-xl">{item.description}</h3>
-                    </div>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </motion.section>
-  );
+						<div className="flex flex-col sm:flex-row gap-4 pt-2">
+							<Link
+								href="mailto:a.dadashzadeh89@gmail.com"
+								className="inline-flex h-[52px] items-center justify-center rounded-full bg-accent px-8 text-base font-semibold text-primary transition-all hover:bg-accent-hover"
+							>
+								Email Me
+							</Link>
+
+							<Link
+								href="tel:+16478778157"
+								className="inline-flex h-[52px] items-center justify-center rounded-full border border-white/20 px-8 text-base font-semibold text-white transition-all hover:border-accent hover:text-accent"
+							>
+								Call Me
+							</Link>
+						</div>
+					</div>
+
+					{/* Contact info */}
+					<div className="rounded-2xl border border-white/10 bg-[#27272c] p-6 md:p-8 shadow-2xl shadow-black/20">
+						<ul className="flex flex-col gap-5">
+							{info.map((item, i) => {
+								const content = (
+									<div className="group flex items-center gap-5 rounded-xl border border-white/5 bg-white/[0.02] p-4 transition-all hover:border-accent/40 hover:bg-white/[0.04]">
+										<div className="flex h-[56px] w-[56px] shrink-0 items-center justify-center rounded-lg bg-black/20 text-accent">
+											<div className="text-[24px]">{item.icon}</div>
+										</div>
+
+										<div className="min-w-0 flex-1">
+											<p className="text-sm text-white/50">{item.title}</p>
+											<h3 className="break-words text-lg font-medium text-white group-hover:text-accent transition-all">
+												{item.description}
+											</h3>
+										</div>
+									</div>
+								);
+
+								return (
+									<li key={i}>
+										{item.href ? (
+											<Link
+												href={item.href}
+												target={
+													item.href.startsWith("http") ? "_blank" : undefined
+												}
+											>
+												{content}
+											</Link>
+										) : (
+											content
+										)}
+									</li>
+								);
+							})}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</motion.section>
+	);
 }
