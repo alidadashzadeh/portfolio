@@ -7,19 +7,19 @@ import { Button } from "@/components/ui/button";
 
 export default function Page() {
 	return (
-		<section className="h-full">
-			<div className="container mx-auto h-full">
-				<div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
+		<section className="min-h-screen">
+			<div className="container mx-auto h-full px-4">
+				<div className="flex flex-col xl:flex-row items-center justify-between gap-12 xl:pt-8 xl:pb-24">
 					{/* TEXT */}
-					<div className="text-center xl:text-left order-2 xl:order-none">
-						<span className="text-xl">software developer</span>
+					<div className="order-2 xl:order-none text-center xl:text-left max-w-[700px]">
+						<span className="text-lg sm:text-xl">software developer</span>
 
-						<h1 className="h1">
+						<h1 className="h1 mt-2">
 							Hello, I am <br />
 							<span className="text-accent">Ali Dadashzadeh</span>
 						</h1>
 
-						<p className="max-w-[500px] mb-9 text-white/80 text-lg">
+						<p className="max-w-[600px] mx-auto xl:mx-0 mb-10 text-white/80 text-base md:text-lg leading-relaxed">
 							Software Engineer with a strong focus on designing and developing
 							high-performance, user-centric web applications. Experienced in
 							full-stack development, system design, and delivering reliable
@@ -27,16 +27,15 @@ export default function Page() {
 						</p>
 
 						{/* CTA + SOCIALS */}
-						<div className="flex flex-col xl:flex-row items-center gap-8">
-							<div className="mb-8 xl:mb-0 flex items-center gap-4">
-								{/* PROJECTS CTA */}
-								<Button>
-									<Link href="/projects" className="px-5 py-2 ">
+						<div className="flex flex-col items-center xl:items-start gap-8">
+							{/* Buttons */}
+							<div className="flex flex-col sm:flex-row items-center gap-4">
+								<Button asChild>
+									<Link href="/projects" className="px-6">
 										View Projects
 									</Link>
 								</Button>
 
-								{/* CV BUTTON */}
 								<Button
 									asChild
 									variant="outline"
@@ -47,18 +46,18 @@ export default function Page() {
 										Download CV
 									</a>
 								</Button>
-
-								{/* SOCIALS */}
-								<Socials
-									containerStyles="flex gap-6"
-									iconStyles="w-9 h-9 border border-accent rounded-full flex items-center justify-center text-accent text-xl hover:bg-accent hover:text-primary transition-all duration-300"
-								/>
 							</div>
+
+							{/* Socials */}
+							<Socials
+								containerStyles="flex flex-wrap justify-center xl:justify-start gap-4"
+								iconStyles="w-10 h-10 border border-accent rounded-full flex items-center justify-center text-accent text-xl hover:bg-accent hover:text-primary transition-all duration-300"
+							/>
 						</div>
 					</div>
 
 					{/* PHOTO */}
-					<div className="order-1 xl:order-none mb-8 xl:mb-0">
+					<div className="order-1 xl:order-none w-full flex justify-center">
 						<Photo />
 					</div>
 				</div>
