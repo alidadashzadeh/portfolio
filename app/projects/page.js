@@ -95,9 +95,7 @@ export default function Projects() {
 													src={projectItem.image}
 													alt={projectItem.title}
 													fill
-													priority
-													sizes="(max-width: 1280px) 100vw, 520px"
-													className="object-cover"
+													className="absolute inset-0 h-full w-full object-cover"
 												/>
 											)}
 										</div>
